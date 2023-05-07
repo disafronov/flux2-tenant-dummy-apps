@@ -4,4 +4,4 @@ resources:
 - ../flux
 - helm-release.yaml
 - helm-repository.yaml
-- namespace.yaml
+# - namespace.yaml
