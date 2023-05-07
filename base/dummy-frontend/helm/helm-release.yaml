@@ -1,0 +1,84 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: dummy-frontend
+  namespace: dummy-frontend
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: default
+      interval: 5m
+      sourceRef:
+        kind: HelmRepository
+        name: dummy-frontend
+        namespace: dummy-frontend
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  values:
+    installCRDs: true
+    nameOverride: dummy-frontend
+    image:
+      repository: registry.cyberbrain.pw/tools/docker/dummy-frontend
+    containerPort: 8080
+    deploymentType: Deployment
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 100m
+        memory: 100Mi
+    startupProbe:
+      tcpSocket:
+        port: http
+      failureThreshold: 10
+      periodSeconds: 2
+    readinessProbe:
+      httpGet:
+        path: /
+        port: http
+        scheme: HTTP
+      initialDelaySeconds: 0
+      periodSeconds: 2
+      timeoutSeconds: 1
+      successThreshold: 1
+      failureThreshold: 3
+    livenessProbe:
+      httpGet:
+        path: /
+        port: http
+        scheme: HTTP
+      initialDelaySeconds: 60
+      periodSeconds: 10
+      timeoutSeconds: 1
+      successThreshold: 1
+      failureThreshold: 3
+    podSecurityContext:
+      fsGroup: 1000
+    securityContext:
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      allowPrivilegeEscalation: false
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - dummy-frontend
+            topologyKey: "kubernetes.io/hostname"
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 5
+      targetCPUUtilizationPercentage: 50
+      targetMemoryUtilizationPercentage: 50

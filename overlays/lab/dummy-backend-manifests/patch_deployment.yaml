@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-backend
+  namespace: dummy-backend
+spec:
+  template:
+    spec:
+      containers:
+      - name: dummy-backend
+        image: registry.cyberbrain.pw/tools/docker/dummy-backend:0.0.4 # {"$imagepolicy": "dummy-backend:dummy-backend-lab"}
