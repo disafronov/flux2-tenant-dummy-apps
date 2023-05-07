@@ -7,7 +7,7 @@ spec:
   suspend: false
   sourceRef:
     kind: GitRepository
-    name: dummy-frontend
+    name: dummy-apps
   git:
     checkout:
       ref:
