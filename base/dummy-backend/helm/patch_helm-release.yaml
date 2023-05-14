@@ -1,28 +1,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: dummy-frontend
-  namespace: dummy-frontend
+  name: dummy-backend
+  namespace: dummy-backend
 spec:
-  interval: 10m
-  chart:
-    spec:
-      chart: default
-      interval: 5m
-      sourceRef:
-        kind: HelmRepository
-        name: dummy-frontend
-        namespace: dummy-frontend
-  install:
-    crds: CreateReplace
-  upgrade:
-    crds: CreateReplace
   values:
-    installCRDs: true
-    nameOverride: dummy-frontend
+    nameOverride: dummy-backend
     image:
-      repository: registry.cyberbrain.pw/tools/docker/dummy-frontend
-    containerPort: 8080
+      repository: registry.cyberbrain.pw/tools/docker/dummy-backend
+    containerPort: 3000
     deploymentType: Deployment
     resources:
       requests:
@@ -74,7 +60,7 @@ spec:
               - key: app.kubernetes.io/name
                 operator: In
                 values:
-                - dummy-frontend
+                - dummy-backend
             topologyKey: "kubernetes.io/hostname"
     autoscaling:
       enabled: true
