@@ -1,4 +1,13 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: dummy-frontend
+  namespace: dummy-frontend
+spec:
+  image: registry.cyberbrain.pw/tools/docker/dummy-frontend
+  interval: 10m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
   name: dummy-frontend
@@ -17,6 +26,6 @@ spec:
         name: Flux
         email: root@cyberbrain.pw
       messageTemplate: '[ci skip] update image: dummy-frontend'
-  interval: 1m0s
+  interval: 10m0s
   update:
     strategy: Setters

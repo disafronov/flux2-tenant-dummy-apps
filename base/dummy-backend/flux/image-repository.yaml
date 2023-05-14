@@ -1,8 +1,0 @@
-apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImageRepository
-metadata:
-  name: dummy-backend
-  namespace: dummy-backend
-spec:
-  image: registry.cyberbrain.pw/tools/docker/dummy-backend
-  interval: 1m0s
