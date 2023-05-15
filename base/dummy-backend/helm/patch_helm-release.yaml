@@ -28,14 +28,14 @@ spec:
     livenessProbe:
       httpGet:
         path: /
-        port: http
+        port: default
       periodSeconds: 10
       failureThreshold: 5
       timeoutSeconds: 5
     readinessProbe:
       httpGet:
         path: /
-        port: http
+        port: default
       initialDelaySeconds: 10
       periodSeconds: 5
       timeoutSeconds: 3
