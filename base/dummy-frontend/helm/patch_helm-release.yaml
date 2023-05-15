@@ -63,3 +63,5 @@ spec:
       maxReplicas: 5
       targetCPUUtilizationPercentage: 50
       targetMemoryUtilizationPercentage: 50
+    tmp:
+      enabled: true
