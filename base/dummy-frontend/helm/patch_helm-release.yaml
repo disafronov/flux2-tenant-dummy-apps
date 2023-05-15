@@ -25,21 +25,21 @@ spec:
       runAsUser: 1000
       runAsGroup: 1000
       allowPrivilegeEscalation: false
-    livenessProbe:
-      httpGet:
-        path: /
-        port: default
-      periodSeconds: 10
-      failureThreshold: 5
-      timeoutSeconds: 5
-    readinessProbe:
-      httpGet:
-        path: /
-        port: default
-      initialDelaySeconds: 10
-      periodSeconds: 5
-      timeoutSeconds: 3
-      failureThreshold: 3
+    # livenessProbe:
+    #   httpGet:
+    #     path: /
+    #     port: default
+    #   periodSeconds: 10
+    #   failureThreshold: 5
+    #   timeoutSeconds: 5
+    # readinessProbe:
+    #   httpGet:
+    #     path: /
+    #     port: default
+    #   initialDelaySeconds: 10
+    #   periodSeconds: 5
+    #   timeoutSeconds: 3
+    #   failureThreshold: 3
     affinity:
       podAntiAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
