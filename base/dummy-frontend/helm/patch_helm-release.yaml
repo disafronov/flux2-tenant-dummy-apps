@@ -17,31 +17,6 @@ spec:
       limits:
         cpu: 100m
         memory: 100Mi
-    startupProbe:
-      tcpSocket:
-        port: http
-      failureThreshold: 10
-      periodSeconds: 2
-    readinessProbe:
-      httpGet:
-        path: /
-        port: http
-        scheme: HTTP
-      initialDelaySeconds: 0
-      periodSeconds: 2
-      timeoutSeconds: 1
-      successThreshold: 1
-      failureThreshold: 3
-    livenessProbe:
-      httpGet:
-        path: /
-        port: http
-        scheme: HTTP
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      timeoutSeconds: 1
-      successThreshold: 1
-      failureThreshold: 3
     podSecurityContext:
       fsGroup: 1000
     securityContext:
