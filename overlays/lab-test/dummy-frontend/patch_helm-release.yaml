@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.8.0
+      version: 0.8.1
   values:
     image:
       tag: 0.0.4 # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab-test:tag"}
