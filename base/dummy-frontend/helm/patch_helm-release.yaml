@@ -7,7 +7,7 @@ spec:
   values:
     nameOverride: dummy-frontend
     image:
-      repository: registry.cyberbrain.pw/tools/docker/dummy-frontend
+      repository: ghcr.io/dmitriysafronov/dummy-frontend
     containerPort: 8080
     deploymentType: Deployment
     resources:

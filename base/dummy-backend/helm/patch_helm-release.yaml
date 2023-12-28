@@ -7,7 +7,7 @@ spec:
   values:
     nameOverride: dummy-backend
     image:
-      repository: registry.cyberbrain.pw/tools/docker/dummy-backend
+      repository: ghcr.io/dmitriysafronov/dummy-backend
     containerPort: 3000
     deploymentType: Deployment
     resources:

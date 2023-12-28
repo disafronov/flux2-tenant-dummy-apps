@@ -9,7 +9,7 @@ spec:
       version: 0.7.3
   values:
     image:
-      tag: 0.0.4 # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab:tag"}
+      tag: 0.0.1 # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab:tag"}
     ingress:
       enabled: true
       annotations:
