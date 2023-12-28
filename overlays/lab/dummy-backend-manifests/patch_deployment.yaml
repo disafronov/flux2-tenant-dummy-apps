@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: dummy-backend
-        image: registry.cyberbrain.pw/tools/docker/dummy-backend:0.0.4 # {"$imagepolicy": "dummy-backend:dummy-backend-lab"}
+        image: ghcr.io/dmitriysafronov/dummy-backend:0.0.2 # {"$imagepolicy": "dummy-backend:dummy-backend-lab"}
