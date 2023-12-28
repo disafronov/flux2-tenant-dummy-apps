@@ -6,8 +6,6 @@ metadata:
 spec:
   values:
     nameOverride: dummy-frontend
-    # image:
-    #   repository: ghcr.io/dmitriysafronov/dummy-frontend
     containerPort: 8080
     deploymentType: Deployment
     resources:
