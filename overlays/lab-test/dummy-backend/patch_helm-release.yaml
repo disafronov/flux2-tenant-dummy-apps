@@ -9,7 +9,7 @@ spec:
       version: 0.8.4
   values:
     image:
-      tag: latest # {"$imagepolicy": "dummy-backend:dummy-backend-lab-test:tag"}
+      tag: main-74cbebc-1703774631391 # {"$imagepolicy": "dummy-backend:dummy-backend-lab-test:tag"}
     ingress:
       enabled: true
       annotations:
@@ -29,6 +29,6 @@ spec:
                 number: 80
       tls:
       - hosts:
-          - dummy.lab-test.cyberbrain.pw
-          - www.dummy.lab-test.cyberbrain.pw
+        - dummy.lab-test.cyberbrain.pw
+        - www.dummy.lab-test.cyberbrain.pw
         secretName: dummy-backend-tls
