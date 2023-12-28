@@ -4,7 +4,7 @@ metadata:
   name: dummy-backend
   namespace: dummy-backend
 spec:
-  image: registry.cyberbrain.pw/tools/docker/dummy-backend
+  image: ghcr.io/dmitriysafronov/dummy-backend
   interval: 10m0s
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1

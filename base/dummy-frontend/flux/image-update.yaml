@@ -4,7 +4,7 @@ metadata:
   name: dummy-frontend
   namespace: dummy-frontend
 spec:
-  image: registry.cyberbrain.pw/tools/docker/dummy-frontend
+  image: ghcr.io/dmitriysafronov/dummy-frontend
   interval: 10m0s
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
