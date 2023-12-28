@@ -6,8 +6,8 @@ metadata:
 spec:
   values:
     nameOverride: dummy-backend
-    image:
-      repository: ghcr.io/dmitriysafronov/dummy-backend
+    # image:
+    #   repository: ghcr.io/dmitriysafronov/dummy-backend
     containerPort: 3000
     deploymentType: Deployment
     resources:

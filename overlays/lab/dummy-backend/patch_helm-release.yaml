@@ -9,6 +9,7 @@ spec:
       version: 0.7.3
   values:
     image:
+      repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-backend:dummy-backend-lab:name"}
       tag: 0.0.2 # {"$imagepolicy": "dummy-backend:dummy-backend-lab:tag"}
     ingress:
       enabled: true
