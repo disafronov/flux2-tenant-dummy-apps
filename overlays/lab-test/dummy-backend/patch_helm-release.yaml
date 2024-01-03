@@ -10,7 +10,7 @@ spec:
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-backend:dummy-backend-lab-test:name"}
-      tag: main-74cbebc-1703774631391 # {"$imagepolicy": "dummy-backend:dummy-backend-lab-test:tag"}
+      tag: main-96b9726-1704288011127 # {"$imagepolicy": "dummy-backend:dummy-backend-lab-test:tag"}
     ingress:
       enabled: true
       annotations:
