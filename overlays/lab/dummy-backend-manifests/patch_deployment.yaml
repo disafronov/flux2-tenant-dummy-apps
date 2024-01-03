@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: dummy-backend
-        image: ghcr.io/dmitriysafronov/dummy-backend:0.0.2 # {"$imagepolicy": "dummy-backend:dummy-backend-lab"}
+        image: ghcr.io/dmitriysafronov/dummy-backend:0.0.3 # {"$imagepolicy": "dummy-backend:dummy-backend-lab"}
