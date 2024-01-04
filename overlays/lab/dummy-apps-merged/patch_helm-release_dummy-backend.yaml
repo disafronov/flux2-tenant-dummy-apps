@@ -1,0 +1,37 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: dummy-backend
+  namespace: dummy-backend
+spec:
+  chart:
+    spec:
+      version: 0.8.4
+      sourceRef:
+        namespace: dummy-apps-merged
+  values:
+    image:
+      repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-backend:dummy-backend-lab:name"}
+      tag: main-5066572-1704290656347 # {"$imagepolicy": "dummy-backend:dummy-backend-lab:tag"}
+    ingress:
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+        cert-manager.io/cluster-issuer: "letsencrypt"
+      className: nginx
+      hosts:
+      - host: dummy.lab-test.cyberbrain.pw
+        paths:
+        - pathType: Prefix
+          path: "/api"
+          backend:
+            service:
+              name: dummy-backend
+              port:
+                number: 80
+      tls:
+      - hosts:
+        - dummy.lab-test.cyberbrain.pw
+        - www.dummy.lab-test.cyberbrain.pw
+        secretName: dummy-backend-tls
