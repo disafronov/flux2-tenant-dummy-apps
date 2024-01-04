@@ -7,5 +7,8 @@ spec:
   imageRepositoryRef:
     name: dummy-frontend
   policy:
-    semver:
-      range: '>=0.0.1'
+    numerical:
+      order: asc
+  filterTags:
+    pattern: '^main-[a-f0-9]+-(?P<ts>[0-9]+)'
+    extract: '$ts'
