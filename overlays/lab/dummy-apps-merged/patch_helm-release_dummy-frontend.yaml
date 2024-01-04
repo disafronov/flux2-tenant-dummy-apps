@@ -21,7 +21,7 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt"
       className: nginx
       hosts:
-      - host: dummy.lab-test.cyberbrain.pw
+      - host: dummy.lab.cyberbrain.pw
         paths:
         - pathType: Prefix
           path: "/"
@@ -32,6 +32,6 @@ spec:
                 number: 80
       tls:
       - hosts:
-        - dummy.lab-test.cyberbrain.pw
-        - www.dummy.lab-test.cyberbrain.pw
+        - dummy.lab.cyberbrain.pw
+        - www.dummy.lab.cyberbrain.pw
         secretName: dummy-frontend-tls

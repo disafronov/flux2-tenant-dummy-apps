@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: dummy.lab-test.cyberbrain.pw
+  - host: dummy.lab.cyberbrain.pw
     http:
       paths:
       - pathType: Prefix
@@ -21,6 +21,6 @@ spec:
               number: 80
   tls:
   - hosts:
-      - dummy.lab-test.cyberbrain.pw
-      - www.dummy.lab-test.cyberbrain.pw
+      - dummy.lab.cyberbrain.pw
+      - www.dummy.lab.cyberbrain.pw
     secretName: dummy-backend-tls
