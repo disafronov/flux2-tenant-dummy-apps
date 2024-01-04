@@ -7,6 +7,8 @@ spec:
   chart:
     spec:
       version: 0.8.4
+      sourceRef:
+        namespace: dummy-apps-merged
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-backend:dummy-backend-lab-test:name"}
