@@ -2,7 +2,6 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
   name: dummy-backend-lab-test
-  namespace: dummy-backend
 spec:
   imageRepositoryRef:
     name: dummy-backend
