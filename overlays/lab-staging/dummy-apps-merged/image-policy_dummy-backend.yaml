@@ -8,3 +8,5 @@ spec:
   policy:
     semver:
       range: '>=0.0.1'
+  filterTags:
+    pattern: '.*-rc.*'
