@@ -1,10 +1,10 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
-  name: dummy-backend-lab-test
+  name: dummy-frontend-lab-testing
 spec:
   imageRepositoryRef:
-    name: dummy-backend
+    name: dummy-frontend
   policy:
     numerical:
       order: asc

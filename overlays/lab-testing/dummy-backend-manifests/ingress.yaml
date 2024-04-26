@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dummy-frontend
-  namespace: dummy-frontend
+  name: dummy-backend
+  namespace: dummy-backend
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
@@ -10,18 +10,18 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: dummy.lab-test.cyberbrain.pw
+  - host: dummy.lab-testing.cyberbrain.pw
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: "/api"
         backend:
           service:
-            name: dummy-frontend
+            name: dummy-backend
             port:
               number: 80
   tls:
   - hosts:
-      - dummy.lab-test.cyberbrain.pw
-      - www.dummy.lab-test.cyberbrain.pw
-    secretName: dummy-frontend-tls
+      - dummy.lab-testing.cyberbrain.pw
+      - www.dummy.lab-testing.cyberbrain.pw
+    secretName: dummy-backend-tls

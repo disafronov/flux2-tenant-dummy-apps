@@ -11,8 +11,8 @@ spec:
         namespace: dummy-apps-merged
   values:
     image:
-      repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend-lab-test:name"}
-      tag: main-3c1e785-1711384699596 # {"$imagepolicy": "dummy-apps-merged:dummy-backend-lab-test:tag"}
+      repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend-lab-testing:name"}
+      tag: main-3c1e785-1711384699596 # {"$imagepolicy": "dummy-apps-merged:dummy-backend-lab-testing:tag"}
     ingress:
       enabled: true
       annotations:
@@ -21,7 +21,7 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt"
       className: nginx
       hosts:
-      - host: dummy.lab-test.cyberbrain.pw
+      - host: dummy.lab-testing.cyberbrain.pw
         paths:
         - pathType: Prefix
           path: "/api"
@@ -32,6 +32,6 @@ spec:
                 number: 80
       tls:
       - hosts:
-        - dummy.lab-test.cyberbrain.pw
-        - www.dummy.lab-test.cyberbrain.pw
+        - dummy.lab-testing.cyberbrain.pw
+        - www.dummy.lab-testing.cyberbrain.pw
         secretName: dummy-backend-tls
