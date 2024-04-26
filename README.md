@@ -1,1 +1,1 @@
-# fleet-tenant-dummy-apps
+# flux2-tenant-dummy-apps
