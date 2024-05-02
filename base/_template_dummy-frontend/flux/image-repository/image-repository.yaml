@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: dummy-frontend
+  namespace: dummy-frontend
+spec:
+  image: ghcr.io/dmitriysafronov/dummy-frontend
+  interval: 10m0s
