@@ -20,4 +20,4 @@ spec:
   interval: 10m0s
   update:
     strategy: Setters
-    path: ./base/dummy-frontend
+    path: ./base/_template_dummy-frontend
