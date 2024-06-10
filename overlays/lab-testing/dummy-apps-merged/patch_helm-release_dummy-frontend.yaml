@@ -12,7 +12,7 @@ spec:
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-frontend # {"$imagepolicy": "dummy-apps-merged:dummy-frontend-lab-testing:name"}
-      tag: main-faf481b-1717786557154 # {"$imagepolicy": "dummy-apps-merged:dummy-frontend-lab-testing:tag"}
+      tag: main-c598d8b-1718022604581 # {"$imagepolicy": "dummy-apps-merged:dummy-frontend-lab-testing:tag"}
     ingress:
       enabled: true
       annotations:
