@@ -7,8 +7,6 @@ spec:
   chart:
     spec:
       version: 0.9.0
-      sourceRef:
-        namespace: dummy-apps-merged
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-frontend # {"$imagepolicy": "dummy-apps-merged:dummy-frontend-lab-testing:name"}
@@ -16,22 +14,19 @@ spec:
     ingress:
       enabled: true
       annotations:
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
         cert-manager.io/cluster-issuer: "letsencrypt"
       className: nginx
       hosts:
-      - host: dummy.lab-testing.cyberbrain.pw
-        paths:
-        - pathType: Prefix
-          path: "/"
-          backend:
-            service:
-              name: dummy-frontend
-              port:
-                number: 80
+        - host: dummy.lab-testing.cyberbrain.pw
+          paths:
+            - pathType: Prefix
+              path: "/"
+              backend:
+                service:
+                  name: dummy-frontend
+                  port:
+                    number: 80
       tls:
-      - hosts:
-        - dummy.lab-testing.cyberbrain.pw
-        - www.dummy.lab-testing.cyberbrain.pw
-        secretName: dummy-frontend-tls
+        - hosts:
+            - dummy.lab-testing.cyberbrain.pw
+          secretName: dummy-frontend-tls
