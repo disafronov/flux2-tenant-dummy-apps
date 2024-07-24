@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - image-policy.yaml
+  - image-repository.yaml
+  - sync.yaml
+patches:
+  - path: patch_helm-release.yaml
+  - patch: |
+      - op: add
+        path: /spec/serviceAccountName
+        value: dummy-apps
+    target:
+      kind: HelmRelease
+      name: ".*"
