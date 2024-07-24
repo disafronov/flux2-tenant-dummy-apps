@@ -1,14 +1,12 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
-  name: dummy-backend-lab-testing
+  name: dummy-backend
   namespace: dummy-backend
 spec:
-  imageRepositoryRef:
-    name: dummy-backend
   policy:
     numerical:
       order: asc
   filterTags:
-    pattern: '^main-[a-f0-9]+-(?P<ts>[0-9]+)'
-    extract: '$ts'
+    pattern: "^main-[a-f0-9]+-(?P<ts>[0-9]+)"
+    extract: "$ts"
