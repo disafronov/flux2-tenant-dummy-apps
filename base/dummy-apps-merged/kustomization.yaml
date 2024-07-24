@@ -4,11 +4,3 @@ namespace: dummy-apps-merged
 resources:
   - ../_template_dummy-backend
   - ../_template_dummy-frontend
-patches:
-  - patch: |
-      - op: add
-        path: /spec/chart/spec/sourceRef/namespace
-        value: dummy-apps-merged
-    target:
-      kind: HelmRelease
-      name: "(dummy-backend|dummy-frontend)"
