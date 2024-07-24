@@ -2,6 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
   name: dummy-frontend
+  namespace: dummy-frontend
 spec:
   imageRepositoryRef:
     name: dummy-frontend
