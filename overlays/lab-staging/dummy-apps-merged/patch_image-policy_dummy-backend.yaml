@@ -1,0 +1,11 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: dummy-backend
+  namespace: dummy-backend
+spec:
+  policy:
+    semver:
+      range: ">=0.0.0-0"
+  filterTags:
+    pattern: ".*-rc.*"
