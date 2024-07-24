@@ -9,7 +9,7 @@ patches:
   - patch: |
       - op: add
         path: /spec/serviceAccountName
-        value: dummy-apps
+        value: sa-dummy-apps
     target:
       kind: HelmRelease
       name: ".*"
