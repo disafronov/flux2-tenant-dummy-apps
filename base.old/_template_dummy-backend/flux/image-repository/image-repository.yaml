@@ -1,8 +1,0 @@
-apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImageRepository
-metadata:
-  name: dummy-backend
-  namespace: dummy-backend
-spec:
-  image: ghcr.io/dmitriysafronov/dummy-backend
-  interval: 10m0s

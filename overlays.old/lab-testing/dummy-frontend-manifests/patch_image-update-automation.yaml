@@ -1,8 +1,0 @@
-apiVersion: image.toolkit.fluxcd.io/v1beta1
-kind: ImageUpdateAutomation
-metadata:
-  name: dummy-frontend
-  namespace: dummy-frontend
-spec:
-  update:
-    path: ./overlays/lab-testing/dummy-frontend-manifests
