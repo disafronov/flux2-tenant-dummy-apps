@@ -12,4 +12,4 @@ patches:
         value: sa-dummy-apps
     target:
       kind: HelmRelease
-      name: ".*"
+      name: "dummy-backend"
