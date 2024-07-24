@@ -1,0 +1,49 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: dummy-frontend
+  namespace: dummy-frontend
+spec:
+  values:
+    nameOverride: dummy-frontend
+    containerPort: 8080
+    deploymentType: Deployment
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 100m
+        memory: 100Mi
+    podSecurityContext:
+      fsGroup: 1000
+    securityContext:
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - dummy-frontend
+            topologyKey: "kubernetes.io/hostname"
+    autoscaling:
+      enabled: true
+      minReplicas: 2
+      maxReplicas: 5
+      targetCPUUtilizationPercentage: 50
+      targetMemoryUtilizationPercentage: 50
+    tmp:
+      enabled: true

@@ -1,0 +1,23 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: dummy-apps-merged
+  namespace: dummy-apps-merged
+spec:
+  suspend: false
+  sourceRef:
+    kind: GitRepository
+    name: dummy-apps
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: Flux
+        email: root@cyberbrain.pw
+      messageTemplate: '[ci skip] update image: dummy-apps-merged'
+  interval: 10m0s
+  update:
+    strategy: Setters
+    path: ./base/dummy-apps-merged
