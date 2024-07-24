@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - ../../../base/dummy-apps-merged
 patches:
-  - path: patch_image-policy_dummy-backend.yaml
-  - path: patch_image-policy_dummy-frontend.yaml
   - path: patch_helm-release_dummy-backend.yaml
   - path: patch_helm-release_dummy-frontend.yaml
+  - path: patch_image-policy_dummy-backend.yaml
+  - path: patch_image-policy_dummy-frontend.yaml
