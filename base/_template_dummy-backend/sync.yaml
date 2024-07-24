@@ -22,7 +22,3 @@ spec:
         kind: HelmRepository
         name: dummy-backend
         namespace: dummy-backend
-  install:
-    crds: CreateReplace
-  upgrade:
-    crds: CreateReplace
