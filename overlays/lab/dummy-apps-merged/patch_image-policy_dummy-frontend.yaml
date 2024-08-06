@@ -6,4 +6,4 @@ metadata:
 spec:
   policy:
     semver:
-      range: ">=0.0.1"
+      range: ">=0.0.0"

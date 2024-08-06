@@ -7,5 +7,3 @@ spec:
   policy:
     semver:
       range: ">=0.0.0"
-  # filterTags:
-  #   pattern: ".*-rc.*"
