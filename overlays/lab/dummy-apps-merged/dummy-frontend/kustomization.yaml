@@ -18,4 +18,4 @@ patches:
         value: release/dummy-frontend
     target:
       kind: ImageUpdateAutomation
-      name: "dummy-backend"
+      name: "dummy-frontend"
