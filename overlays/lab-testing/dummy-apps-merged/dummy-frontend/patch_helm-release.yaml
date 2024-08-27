@@ -9,8 +9,8 @@ spec:
       version: 0.9.0
   values:
     image:
-      repository: ghcr.io/dmitriysafronov/dummy-frontend # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab-testing:name"}
-      tag: main-c9df511-1704291025848 # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab-testing:tag"}
+      repository: ghcr.io/dmitriysafronov/dummy-frontend # {"$imagepolicy": "dummy-apps-merged:dummy-frontend-lab-testing:name"}
+      tag: main-c9df511-1704291025848 # {"$imagepolicy": "dummy-apps-merged:dummy-frontend-lab-testing:tag"}
     ingress:
       enabled: true
       annotations:
