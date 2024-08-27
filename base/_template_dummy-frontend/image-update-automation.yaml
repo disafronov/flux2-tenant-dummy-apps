@@ -17,7 +17,7 @@ spec:
       author:
         name: Flux
         email: root@cyberbrain.pw
-      messageTemplate: "Image update automation: dummy-frontend [ci skip] "
+      messageTemplate: "Image update automation: dummy-frontend [ci skip]"
   interval: 10m0s
   update:
     path: ./base/_template_dummy-frontend
