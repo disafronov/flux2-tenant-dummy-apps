@@ -17,11 +17,11 @@ spec:
     commit:
       author:
         name: Flux
-        email: root@cyberbrain.pw
+        email: flux@cyberbrain.pw
       messageTemplate: |
         Image update automation: dummy-frontend
         [ci skip]
-        Signed-off-by: Flux <root@cyberbrain.pw>
+        Signed-off-by: Flux <flux@cyberbrain.pw>
   interval: 10m0s
   update:
     path: ./base/_template_dummy-frontend
