@@ -15,7 +15,7 @@ patches:
   - patch: |
       - op: add
         path: /spec/git/push/branch
-        value: release/dummy-backend
+        value: production/dummy-backend
     target:
       kind: ImageUpdateAutomation
       name: "dummy-backend"
