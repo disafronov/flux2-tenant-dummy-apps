@@ -5,3 +5,10 @@ resources:
 patches:
   - path: patch_helm-release.yaml
   - path: patch_image-policy.yaml
+  - patch: |
+      - op: add
+        path: /spec/update/path
+        value: ./overlays/lab-testing/dummy-frontend
+    target:
+      kind: ImageUpdateAutomation
+      name: "dummy-frontend"
