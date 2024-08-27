@@ -12,3 +12,10 @@ patches:
     target:
       kind: ImageUpdateAutomation
       name: "dummy-frontend"
+  - patch: |
+      - op: add
+        path: /spec/git/push/branch
+        value: staging/dummy-frontend
+    target:
+      kind: ImageUpdateAutomation
+      name: "dummy-frontend"
