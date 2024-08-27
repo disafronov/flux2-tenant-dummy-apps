@@ -12,6 +12,6 @@ jobs:
         uses: peter-evans/rebase@v3
         with:
           base: main
-          exclude-drafts: true
+          exclude-drafts: false
           exclude-labels: |
             no-rebase
