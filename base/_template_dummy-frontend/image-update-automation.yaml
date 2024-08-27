@@ -18,7 +18,10 @@ spec:
       author:
         name: Flux
         email: root@cyberbrain.pw
-      messageTemplate: "Image update automation: dummy-frontend [ci skip]"
+      messageTemplate: |
+        Image update automation: dummy-frontend
+        [ci skip]
+        Signed-off-by: Flux <root@cyberbrain.pw>
   interval: 10m0s
   update:
     path: ./base/_template_dummy-frontend
