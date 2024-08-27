@@ -1,16 +1,16 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: dummy-backend
-  namespace: dummy-backend
+  name: dummy-frontend
+  namespace: dummy-frontend
 spec:
   chart:
     spec:
       version: 0.9.0
   values:
     image:
-      repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend:name"}
-      tag: main-fb2453b-1723756079779 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
+      repository: ghcr.io/dmitriysafronov/dummy-frontend # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab-testing:name"}
+      tag: main-c9df511-1704291025848 # {"$imagepolicy": "dummy-frontend:dummy-frontend-lab-testing:tag"}
     ingress:
       enabled: true
       annotations:
@@ -20,13 +20,13 @@ spec:
         - host: dummy.lab-testing.cyberbrain.pw
           paths:
             - pathType: Prefix
-              path: "/api"
+              path: "/"
               backend:
                 service:
-                  name: dummy-backend
+                  name: dummy-frontend
                   port:
                     number: 80
       tls:
         - hosts:
             - dummy.lab-testing.cyberbrain.pw
-          secretName: dummy-backend-tls
+          secretName: dummy-frontend-tls
