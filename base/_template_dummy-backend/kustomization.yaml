@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - image-policy.yaml
   - image-repository.yaml
+  - image-update-automation.yaml
   - sync.yaml
 patches:
   - path: patch_helm-release.yaml
