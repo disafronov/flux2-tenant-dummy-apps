@@ -7,4 +7,4 @@ metadata:
 spec:
   policy:
     semver:
-      range: "0.0.21"
+      range: "0.0.22"
