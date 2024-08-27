@@ -13,10 +13,3 @@ patches:
     target:
       kind: ImageUpdateAutomation
       name: "dummy-backend"
-  - patch: |
-      - op: add
-        path: /spec/git/push/branch
-        value: production/dummy-backend
-    target:
-      kind: ImageUpdateAutomation
-      name: "dummy-backend"
