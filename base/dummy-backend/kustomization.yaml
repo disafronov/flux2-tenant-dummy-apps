@@ -3,3 +3,11 @@ kind: Kustomization
 namespace: dummy-backend
 resources:
   - ../_template_dummy-backend
+patches:
+  - patch: |
+      - op: add
+        path: /spec/update/path
+        value: ./base/dummy-backend
+    target:
+      kind: ImageUpdateAutomation
+      name: "dummy-backend"
