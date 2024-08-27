@@ -4,3 +4,18 @@ namespace: dummy-apps-merged
 resources:
   - ../_template_dummy-backend
   - ../_template_dummy-frontend
+patches:
+  - patch: |
+      - op: add
+        path: /spec/update/path
+        value: ./base/dummy-apps-merged/dummy-backend
+    target:
+      kind: ImageUpdateAutomation
+      name: "dummy-backend"
+  - patch: |
+      - op: add
+        path: /spec/update/path
+        value: ./base/dummy-apps-merged/dummy-frontend
+    target:
+      kind: ImageUpdateAutomation
+      name: "dummy-frontend"
