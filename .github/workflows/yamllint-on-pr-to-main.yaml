@@ -6,7 +6,6 @@ name: Yamllint on pull request to main
 jobs:
   yamllint:
     name: Yamllint on pull request to main
-    if: ${{ github.event.pull_request.draft == false }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
