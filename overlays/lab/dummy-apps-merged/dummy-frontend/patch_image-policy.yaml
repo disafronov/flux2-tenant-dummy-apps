@@ -4,6 +4,6 @@ metadata:
   name: dummy-frontend
   namespace: dummy-frontend
 spec:
-  policy:
-    semver:
-      range: ">=0.0.0"
+  # policy:
+  #   semver:
+  #     range: ">=0.0.0"
