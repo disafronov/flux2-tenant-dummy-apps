@@ -10,7 +10,7 @@ spec:
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend:name"}
-      tag: main-9d6c9dd-1725984648642 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
+      tag: main-09fcaea-1726172382977 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
     ingress:
       enabled: true
       annotations:
