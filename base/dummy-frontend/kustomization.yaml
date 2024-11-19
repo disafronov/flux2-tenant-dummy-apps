@@ -4,11 +4,3 @@ kind: Kustomization
 namespace: dummy-frontend
 resources:
   - ../_template_dummy-frontend
-patches:
-  - patch: |
-      - op: add
-        path: /spec/update/path
-        value: ./base/dummy-frontend
-    target:
-      kind: ImageUpdateAutomation
-      name: "dummy-frontend"
