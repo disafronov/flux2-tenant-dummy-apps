@@ -8,10 +8,3 @@ resources:
   - sync.yaml
 patches:
   - path: patch_helm-release.yaml
-  - patch: |
-      - op: add
-        path: /spec/serviceAccountName
-        value: sa-dummy-apps
-    target:
-      kind: HelmRelease
-      name: "dummy-frontend"
