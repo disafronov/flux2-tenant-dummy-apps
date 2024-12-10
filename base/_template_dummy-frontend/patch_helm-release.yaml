@@ -48,3 +48,6 @@ spec:
       targetMemoryUtilizationPercentage: 50
     tmp:
       enabled: true
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: "default"
