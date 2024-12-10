@@ -13,11 +13,9 @@ spec:
       tag: 0.0.41 # {"$imagepolicy": "dummy-apps-merged:dummy-frontend:tag"}
     ingress:
       enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt"
       className: nginx
       hosts:
-        - host: dummy.lab-staging.cyberbrain.pw
+        - host: dummy.lab-staging
           paths:
             - pathType: Prefix
               path: "/"
@@ -28,5 +26,5 @@ spec:
                     number: 80
       tls:
         - hosts:
-            - dummy.lab-staging.cyberbrain.pw
+            - dummy.lab-staging
           secretName: dummy-frontend-tls
