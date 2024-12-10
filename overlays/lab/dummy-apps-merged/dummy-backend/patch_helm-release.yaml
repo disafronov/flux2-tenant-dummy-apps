@@ -13,8 +13,6 @@ spec:
       tag: 0.0.11 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
     ingress:
       enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt"
       className: nginx
       hosts:
         - host: dummy.lab.cyberbrain.pw
