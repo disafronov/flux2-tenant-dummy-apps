@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      version: 0.9.0
+      version: 1.1.0
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend:name"}
