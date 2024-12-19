@@ -15,7 +15,7 @@ spec:
       enabled: true
       className: nginx
       hosts:
-        - host: dummy.lab-staging
+        - host: dummy.lab-staging.home.arpa
           paths:
             - pathType: Prefix
               path: "/"
@@ -26,5 +26,5 @@ spec:
                     number: 80
       tls:
         - hosts:
-            - dummy.lab-staging
+            - dummy.lab-staging.home.arpa
           secretName: dummy-frontend-tls
