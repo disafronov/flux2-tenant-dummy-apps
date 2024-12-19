@@ -19,11 +19,6 @@ spec:
           paths:
             - pathType: Prefix
               path: "/api"
-              backend:
-                service:
-                  name: dummy-backend
-                  port:
-                    number: 80
       tls:
         - hosts:
             - dummy.lab-staging.home.arpa

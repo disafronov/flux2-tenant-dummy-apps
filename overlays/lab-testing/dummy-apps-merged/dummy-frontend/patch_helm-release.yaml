@@ -16,11 +16,6 @@ spec:
           paths:
             - pathType: Prefix
               path: "/"
-              backend:
-                service:
-                  name: dummy-frontend
-                  port:
-                    number: 80
       tls:
         - hosts:
             - dummy.lab-testing.home.arpa
