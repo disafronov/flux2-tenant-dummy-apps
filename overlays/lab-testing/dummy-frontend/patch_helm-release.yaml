@@ -5,9 +5,6 @@ metadata:
   name: dummy-frontend
   namespace: dummy-frontend
 spec:
-  chart:
-    spec:
-      version: 0.9.0
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-frontend # {"$imagepolicy": "dummy-frontend:dummy-frontend:name"}
@@ -16,7 +13,7 @@ spec:
       enabled: true
       className: nginx
       hosts:
-        - host: dummy.lab-testing
+        - host: dummy.lab-testing.home.arpa
           paths:
             - pathType: Prefix
               path: "/"
@@ -27,5 +24,5 @@ spec:
                     number: 80
       tls:
         - hosts:
-            - dummy.lab-testing
+            - dummy.lab-testing.home.arpa
           secretName: dummy-frontend-tls
