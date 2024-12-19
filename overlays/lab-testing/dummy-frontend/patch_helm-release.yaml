@@ -11,8 +11,8 @@ spec:
       tag: main-c9df511-1704291025848 # {"$imagepolicy": "dummy-frontend:dummy-frontend:tag"}
     ingress:
       enabled: true
-      className: nginx
-      hosts:
+      ingressClassName: nginx
+      rules:
         - host: dummy.lab-testing.home.arpa
           paths:
             - pathType: Prefix

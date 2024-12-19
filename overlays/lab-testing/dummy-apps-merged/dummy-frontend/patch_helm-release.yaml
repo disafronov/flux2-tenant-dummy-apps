@@ -10,8 +10,8 @@ spec:
       tag: main-8ec8620-1734538443704 # {"$imagepolicy": "dummy-apps-merged:dummy-frontend:tag"}
     ingress:
       enabled: true
-      className: nginx
-      hosts:
+      ingressClassName: nginx
+      rules:
         - host: dummy.lab-testing.home.arpa
           paths:
             - pathType: Prefix
