@@ -6,15 +6,15 @@ metadata:
 spec:
   chart:
     spec:
-      version: 1.1.0
+      version: 3.3.0
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend:name"}
       tag: 0.0.11 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
     ingress:
       enabled: true
-      className: nginx
-      hosts:
+      ingressClassName: nginx
+      rules:
         - host: dummy.lab.cyberbrain.pw
           paths:
             - pathType: Prefix
