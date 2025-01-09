@@ -9,6 +9,7 @@ spec:
   url: https://dmitriysafronov.github.io/helm-charts
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: dummy-frontend
   namespace: dummy-frontend
