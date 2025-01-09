@@ -1,5 +1,5 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: dummy-frontend
@@ -8,8 +8,7 @@ spec:
   interval: 10m
   url: https://dmitriysafronov.github.io/helm-charts
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
+apiVersion: helm.toolkit.fluxcd.io/v2
 metadata:
   name: dummy-frontend
   namespace: dummy-frontend
