@@ -13,13 +13,13 @@ spec:
       enabled: true
       ingressClassName: nginx
       rules:
-        - host: dummy.lab-testing.home.arpa
+        - host: dummy.lab-review.home.arpa
           paths:
             - pathType: Prefix
               path: "/api"
       tls:
         - hosts:
-            - dummy.lab-testing.home.arpa
+            - dummy.lab-review.home.arpa
           secretName: dummy-backend-tls
     autoscaling:
       enabled: false
