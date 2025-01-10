@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: dummy-backend
+  namespace: dummy-backend
+spec:
+  values:
+    image:
+      repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend:name"}
+      tag: main-82e4663-1736426513071 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      rules:
+        - host: dummy.lab-testing.home.arpa
+          paths:
+            - pathType: Prefix
+              path: "/api"
+      tls:
+        - hosts:
+            - dummy.lab-testing.home.arpa
+          secretName: dummy-backend-tls
+    autoscaling:
+      enabled: false
