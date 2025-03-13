@@ -7,7 +7,7 @@ spec:
   values:
     image:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-apps-merged:dummy-backend:name"}
-      tag: main-5ac3c13-1741784875000 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
+      tag: main-ad9329a-1741846061776 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
     ingress:
       enabled: true
       ingressClassName: nginx
