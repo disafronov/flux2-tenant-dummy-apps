@@ -12,13 +12,13 @@ spec:
       enabled: true
       ingressClassName: nginx
       rules:
-        - host: dummy.lab-review.home.arpa
+        - host: dummy.review.cyberbrain.pw
           paths:
             - pathType: Prefix
               path: "/api"
       tls:
         - hosts:
-            - dummy.lab-review.home.arpa
+            - dummy.review.cyberbrain.pw
           secretName: dummy-backend-tls
     autoscaling:
       enabled: false
