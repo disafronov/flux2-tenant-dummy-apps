@@ -15,11 +15,11 @@ spec:
       enabled: true
       ingressClassName: nginx
       rules:
-        - host: dummy.lab-staging.home.arpa
+        - host: dummy.staging.cyberbrain.pw
           paths:
             - pathType: Prefix
               path: "/api"
       tls:
         - hosts:
-            - dummy.lab-staging.home.arpa
+            - dummy.staging.cyberbrain.pw
           secretName: dummy-backend-tls
