@@ -23,3 +23,5 @@ spec:
         - hosts:
             - dummy.staging.cyberbrain.pw
           secretName: dummy-frontend-tls
+    autoscaling:
+      enabled: false
