@@ -9,7 +9,7 @@ spec:
       repository: ghcr.io/dmitriysafronov/dummy-backend # {"$imagepolicy": "dummy-backend:dummy-backend:name"}
       tag: 0.0.17 # {"$imagepolicy": "dummy-backend:dummy-backend:tag"}
     ingress:
-      enabled: true
+      enabled: false
       ingressClassName: nginx
       rules:
         - host: dummy.review.cyberbrain.pw
