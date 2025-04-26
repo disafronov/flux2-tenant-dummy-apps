@@ -57,4 +57,4 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: "default"
     image:
-      repository: ghcr.io/dmitriysafronov/dummy-backend
+      repository: ghcr.io/disafronov/dummy-backend
