@@ -1,0 +1,20 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: dummy-frontend
+  namespace: dummy-frontend
+spec:
+  values:
+    ingress:
+      ingressClassName: nginx
+      rules:
+        - host: dummy.review.cyberbrain.pw
+          paths:
+            - pathType: Prefix
+              path: "/"
+      tls:
+        - hosts:
+            - dummy.review.cyberbrain.pw
+          secretName: dummy-frontend-tls
+    autoscaling:
+      enabled: false
