@@ -5,5 +5,5 @@ metadata:
   name: dummy-frontend
   namespace: dummy-frontend
 spec:
-  image: ghcr.io/dmitriysafronov/dummy-frontend
+  image: ghcr.io/disafronov/dummy-frontend
   interval: 10m0s

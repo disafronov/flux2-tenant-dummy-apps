@@ -6,7 +6,7 @@ metadata:
   namespace: dummy-frontend
 spec:
   interval: 10m
-  url: https://dmitriysafronov.github.io/helm-charts
+  url: https://disafronov.github.io/helm-charts
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease

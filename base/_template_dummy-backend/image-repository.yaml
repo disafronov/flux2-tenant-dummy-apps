@@ -5,5 +5,5 @@ metadata:
   name: dummy-backend
   namespace: dummy-backend
 spec:
-  image: ghcr.io/dmitriysafronov/dummy-backend
+  image: ghcr.io/disafronov/dummy-backend
   interval: 10m0s
