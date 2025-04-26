@@ -19,5 +19,3 @@ spec:
         - hosts:
             - dummy.review.cyberbrain.pw
           secretName: dummy-backend-tls
-    autoscaling:
-      enabled: false
