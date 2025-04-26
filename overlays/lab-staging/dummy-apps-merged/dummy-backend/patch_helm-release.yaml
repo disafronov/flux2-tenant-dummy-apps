@@ -9,7 +9,7 @@ spec:
       version: 6.0.2
   values:
     image:
-      tag: 0.0.14 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
+      tag: 0.0.17 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
     ingress:
       enabled: true
       ingressClassName: nginx
