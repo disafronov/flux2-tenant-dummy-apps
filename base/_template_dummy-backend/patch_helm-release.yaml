@@ -51,7 +51,6 @@ spec:
                       - dummy-backend
               topologyKey: "kubernetes.io/hostname"
     autoscaling:
-      enabled: true
       targetCPUUtilizationPercentage: 50
       targetMemoryUtilizationPercentage: 50
     ingress:

@@ -20,5 +20,3 @@ spec:
         - hosts:
             - dummy.lab-testing.home.arpa
           secretName: dummy-backend-tls
-    autoscaling:
-      enabled: false
