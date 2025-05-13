@@ -5,6 +5,22 @@ metadata:
   name: dummy-backend
   namespace: dummy-backend
 spec:
+  driftDetection:
+    mode: enabled
+    ignore:
+      - paths: ["/spec/replicas"]
+        target:
+          kind: Deployment
+  install:
+    timeout: 20m
+    remediation:
+      retries: 3
+  upgrade:
+    timeout: 10m
+    remediation:
+      retries: 3
+    crds: CreateReplace
+    cleanupOnFail: true
   values:
     nameOverride: dummy-backend
     containerPort: 3000
