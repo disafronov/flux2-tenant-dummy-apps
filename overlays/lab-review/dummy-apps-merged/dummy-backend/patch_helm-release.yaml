@@ -7,14 +7,5 @@ spec:
   values:
     ingress:
       ingressClassName: nginx
-      rules:
-        - host: dummy.review.cyberbrain.pw
-          paths:
-            - pathType: Prefix
-              path: "/api"
-      tls:
-        - hosts:
-            - dummy.review.cyberbrain.pw
-          secretName: dummy-backend-tls
     autoscaling:
       enabled: false
