@@ -5,7 +5,5 @@ metadata:
   namespace: dummy-backend
 spec:
   values:
-    ingress:
-      ingressClassName: nginx
     autoscaling:
       enabled: false

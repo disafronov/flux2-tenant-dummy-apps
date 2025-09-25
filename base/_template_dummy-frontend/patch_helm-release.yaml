@@ -59,8 +59,5 @@ spec:
     autoscaling:
       targetCPUUtilizationPercentage: 50
       targetMemoryUtilizationPercentage: 50
-    ingress:
-      annotations:
-        cert-manager.io/cluster-issuer: "default"
     image:
       repository: ghcr.io/disafronov/dummy-frontend

@@ -12,15 +12,16 @@ spec:
       tag: 0.1.0 # {"$imagepolicy": "dummy-apps-merged:dummy-backend:tag"}
     ingress:
       enabled: true
-      ingressClassName: nginx
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: dummy-staging.quickanddirty.work
       rules:
-        - host: dummy.staging.cyberbrain.pw
+        - host: dummy-staging.quickanddirty.work
           paths:
             - pathType: Prefix
               path: "/api"
       tls:
         - hosts:
-            - dummy.staging.cyberbrain.pw
+            - dummy-staging.quickanddirty.work
           secretName: dummy-backend-tls
     autoscaling:
       enabled: true
