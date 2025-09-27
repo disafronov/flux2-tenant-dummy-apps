@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: github-token-dummy-backend
+    namespace: dummy-backend-review
+stringData:
+    github-token: ENC[AES256_GCM,data:V84rlBpoNvl8DAAR4+Tjkwe/TT8xqPBJufyWPH5p0lP3JhfYro4iB2i6OQDSaCB405EXtSdGawDDEqFWOaTh+VO+Q0FeM2g0EaaRNyIVCZW3tHun9C6qfGx1JvdY,iv:nsXH9uu9f+mDhdRfzQrzmFaPjHWuKIQbGpcPf9TMcGI=,tag:c08UWXgHxFljbVqMUG24lQ==,type:str]
+sops:
+    age:
+        - recipient: age1tmnm4efw3l87r7nld6faju32hrl9a53wep4je5gy84g4my73v9ese6ludf
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBuOXZzOGNMWUlTdkV5aVNl
+            N2Jxc1p0NGllblAzNWNuSTVhdVgxeWwwdVFJClRYTnBMa0d3OHpqWWEzL2FrSUxp
+            dWRFRWRTOXVCUGFBbWxiaEt4MldzZlEKLS0tIGY5RDRnTDZzWEFtS250bC9JdDAy
+            Y0kySXAxcGpXOE1ZTmN6bmhaNkNrQ2sKiyBJjPTr/p/KNX84hzoT/me8NQsBpfXl
+            oM48d6hMg2UrGZajv0LkmHJTSu9wCMiUZbEjfxP7c4ZZwkuqrvxLMQ==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age17cazrjxqfut04se7kuqfm9v4la4nej0mzuxzkm3em6j26vak5yvsh8s4xu
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAza1VjcnExcEhORjg2c2dk
+            SzFIUnpoTVFwSk1McmhrZnRxZ2YzNy91eEdnClB4cWtpSUpwTUdhNUFmd2xUMzdX
+            aVF1MENrSGpnTUwwdVFCaHhsWmZYZE0KLS0tIGZtMUxyc3ZkcGZXMXJkZGVtOFhK
+            QjdLOWN1eVdZWllCMnlUaTEzbmdzbGcKgb0rEYe7eb8jlEDQ2aeOEX8639J9KrNZ
+            gIMrNGv1rqHLbvkZ4gLGuBeRNpDW4D0vbU7gQD2738WgDmIABO9AIg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-09-27T21:28:26Z"
+    mac: ENC[AES256_GCM,data:Uk/25Rb21Ec2RwwkW1lgKnrQpqIKF4GzaJ+9wHUThd/frH/zcywEPP2BQDBrj05fBs3BZb7ovUjn9B9MhK27DykvN7D/CEgwgpdv6viUG+dLzm+sm1TdXMmp9hfZ7aUIMHnX2wy3mOY46SHjwPZ+fWPN0XaDWGv7Pi7OBdQMVh4=,iv:v2k7nMiUDMCOpmecSNhzXXqjd69OYsnRiTuEa/A3i9E=,tag:huyPrVBNITSGtwkfUl2W6A==,type:str]
+    encrypted_regex: ((?i)(pass|secret($|[^N])|key|token|^data$|^stringData))
+    version: 3.10.2

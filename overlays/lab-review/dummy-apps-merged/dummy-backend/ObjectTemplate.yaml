@@ -1,0 +1,151 @@
+apiVersion: templates.kluctl.io/v1alpha1
+kind: ObjectTemplate
+metadata:
+  name: dummy-backend
+  namespace: dummy-backend-review
+spec:
+  # This causes removal of templated objects in case they disappear from the rendered list of objects
+  prune: true
+  matrix:
+    - name: pr
+      object:
+        ref:
+          apiVersion: templates.kluctl.io/v1alpha1
+          kind: ListGithubPullRequests
+          name: dummy-backend
+        jsonPath: status.pullRequests
+        expandLists: true
+    - name: ingress
+      object:
+        ref:
+          apiVersion: v1
+          kind: ConfigMap
+          name: ingress-dummy-backend
+        jsonPath: .data
+  templates:
+    - object:
+        apiVersion: v1
+        kind: Namespace
+        metadata:
+          name: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+    - object:
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: default
+          namespace: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: cluster-admin
+        subjects:
+          - kind: ServiceAccount
+            name: default
+            namespace: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+          # - apiGroup: rbac.authorization.k8s.io
+          #   kind: User
+          #   name: gotk:dummy-backend:reconciler
+    - object:
+        apiVersion: source.toolkit.fluxcd.io/v1
+        kind: GitRepository
+        metadata:
+          name: "{{ matrix.pr.base.repo.name | slugify }}"
+          namespace: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+        spec:
+          interval: 10m
+          ref:
+            branch: main
+          secretRef:
+            name: "git-auth-{{ matrix.pr.base.repo.name | slugify }}"
+          url: ssh://git@github.com/disafronov/flux2-tenant-dummy-apps.git
+    - object:
+        apiVersion: kustomize.toolkit.fluxcd.io/v1
+        kind: Kustomization
+        metadata:
+          name: "{{ matrix.pr.base.repo.name | slugify }}"
+          namespace: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+        spec:
+          decryption:
+            provider: sops
+            secretRef:
+              name: "sops-age-{{ matrix.pr.base.repo.name | slugify }}"
+          path: ./overlays/lab-review/dummy-apps-merged
+          sourceRef:
+            kind: GitRepository
+            name: "{{ matrix.pr.base.repo.name | slugify }}"
+          interval: 5m0s
+          timeout: 20m0s
+          retryInterval: 2m0s
+          wait: true
+          prune: true
+          force: true
+          targetNamespace: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+          patches:
+            - patch: |-
+                apiVersion: helm.toolkit.fluxcd.io/v2
+                kind: HelmRelease
+                metadata:
+                  name: dummy-backend
+                spec:
+                  values:
+                    image:
+                      tag: "pr-{{ matrix.pr.number }}-{{ matrix.pr.merge_commit_sha[:7] }}"
+                    ingress:
+                      annotations:
+                        external-dns.alpha.kubernetes.io/hostname: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}"
+                      rules:
+                        - host: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}"
+                          paths:
+                            - pathType: Prefix
+                              path: "/api"
+                      tls:
+                        - hosts:
+                            - "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}"
+                          secretName: "tls-{{ matrix.pr.base.repo.name | slugify }}"
+              target:
+                kind: HelmRelease
+                name: dummy-backend
+            - patch: |-
+                apiVersion: helm.toolkit.fluxcd.io/v2
+                kind: HelmRelease
+                metadata:
+                  name: dummy-frontend
+                spec:
+                  values:
+                    ingress:
+                      annotations:
+                        external-dns.alpha.kubernetes.io/hostname: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}"
+                      rules:
+                        - host: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}"
+                          paths:
+                            - pathType: Prefix
+                              path: "/"
+                      tls:
+                        - hosts:
+                            - "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}"
+                          secretName: "tls-{{ matrix.pr.base.repo.name | slugify }}"
+              target:
+                kind: HelmRelease
+                name: dummy-frontend
+    - object:
+        apiVersion: templates.kluctl.io/v1alpha1
+        kind: GithubComment
+        metadata:
+          name: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
+          namespace: dummy-backend-review
+        spec:
+          github:
+            owner: "{{ matrix.pr.base.repo.owner.login }}"
+            repo: "{{ matrix.pr.base.repo.name }}"
+            pullRequestId: "{{ matrix.pr.number }}"
+            tokenRef:
+              secretName: github-token-dummy-backend
+              key: github-token
+          comment:
+            source:
+              text: |
+                Deployment will be ready in few seconds...
+
+                ---
+
+                **URL**: https://{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}{{ matrix.ingress.suffix }}
