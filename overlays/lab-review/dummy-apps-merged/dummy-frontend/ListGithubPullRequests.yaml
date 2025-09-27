@@ -1,0 +1,23 @@
+apiVersion: templates.kluctl.io/v1alpha1
+kind: ListGithubPullRequests
+metadata:
+  name: dummy-frontend
+  namespace: dummy-frontend-review
+spec:
+  interval: 1m
+  # Replace the owner with your username in case you forked podtato-head
+  owner: disafronov
+  repo: dummy-frontend
+  # Ignore closed PRs
+  state: open
+  # Only PR's that go against the main branch
+  base: main
+  # Replace `podtato-head` with your username. This will only allows heads from your own fork!
+  # Otherwise, you risk deploying unsafe environments into your cluster!
+  head: disafronov:.*
+  # * Specifies a list of labels to filter PRs for
+  labels:
+    - ready4deploy
+  tokenRef:
+    secretName: github-token-dummy-frontend
+    key: github-token

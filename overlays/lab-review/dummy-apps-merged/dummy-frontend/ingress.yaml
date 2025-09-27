@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-dummy-frontend
+  namespace: dummy-frontend-review
+data:
+  suffix: -review.quickanddirty.work
+  className: nginx
