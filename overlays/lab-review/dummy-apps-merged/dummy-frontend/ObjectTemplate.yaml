@@ -56,7 +56,7 @@ spec:
             provider: sops
             secretRef:
               name: sops-age-dummy-frontend
-          path: ./overlays/lab-review/dummy-apps-merged
+          path: ./overlays/lab-testing/dummy-apps-merged
           sourceRef:
             kind: GitRepository
             name: dummy-apps
