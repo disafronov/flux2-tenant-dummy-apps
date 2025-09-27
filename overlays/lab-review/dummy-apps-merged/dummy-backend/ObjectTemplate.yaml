@@ -46,19 +46,6 @@ spec:
           #   kind: User
           #   name: gotk:dummy-backend:reconciler
     - object:
-        apiVersion: source.toolkit.fluxcd.io/v1
-        kind: GitRepository
-        metadata:
-          name: "{{ matrix.pr.base.repo.name | slugify }}"
-          namespace: "{{ matrix.pr.base.repo.name | slugify }}-{{ matrix.pr.number }}"
-        spec:
-          interval: 10m
-          ref:
-            branch: main
-          secretRef:
-            name: "git-auth-{{ matrix.pr.base.repo.name | slugify }}"
-          url: ssh://git@github.com/disafronov/flux2-tenant-dummy-apps.git
-    - object:
         apiVersion: kustomize.toolkit.fluxcd.io/v1
         kind: Kustomization
         metadata:
@@ -68,11 +55,12 @@ spec:
           decryption:
             provider: sops
             secretRef:
-              name: "sops-age-{{ matrix.pr.base.repo.name | slugify }}"
+              name: sops-age
           path: ./overlays/lab-review/dummy-apps-merged
           sourceRef:
             kind: GitRepository
-            name: "{{ matrix.pr.base.repo.name | slugify }}"
+            name: dummy-apps
+            namespace: tenants-dummy-apps
           interval: 5m0s
           timeout: 20m0s
           retryInterval: 2m0s
