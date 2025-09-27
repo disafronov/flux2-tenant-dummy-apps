@@ -55,7 +55,7 @@ spec:
           decryption:
             provider: sops
             secretRef:
-              name: sops-age
+              name: sops-age-dummy-backend
           path: ./overlays/lab-review/dummy-apps-merged
           sourceRef:
             kind: GitRepository
