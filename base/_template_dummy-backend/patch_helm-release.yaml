@@ -31,7 +31,7 @@ spec:
         memory: 100Mi
       limits:
         cpu: 100m
-        memory: 100Mi
+        memory: 200Mi
     podSecurityContext:
       fsGroup: 1000
     securityContext:
