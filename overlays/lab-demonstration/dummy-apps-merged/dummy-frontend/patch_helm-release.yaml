@@ -13,13 +13,13 @@ spec:
     ingress:
       enabled: true
       annotations:
-        external-dns.alpha.kubernetes.io/hostname: dummy-testing.quickanddirty.work
+        external-dns.alpha.kubernetes.io/hostname: dummy.quickanddirty.work
       rules:
-        - host: dummy-testing.quickanddirty.work
+        - host: dummy.quickanddirty.work
           paths:
             - pathType: Prefix
               path: "/"
       tls:
         - hosts:
-            - dummy-testing.quickanddirty.work
+            - dummy.quickanddirty.work
           secretName: dummy-frontend-tls
