@@ -23,3 +23,5 @@ spec:
         - hosts:
             - dummy.quickanddirty.work
           secretName: dummy-frontend-tls
+    autoscaling:
+      enabled: true

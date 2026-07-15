@@ -57,7 +57,7 @@ spec:
                       - dummy-frontend
               topologyKey: "kubernetes.io/hostname"
     autoscaling:
-      targetCPUUtilizationPercentage: 80
-      targetMemoryUtilizationPercentage: 80
+      targetCPUUtilizationPercentage: 90
+      targetMemoryUtilizationPercentage: 90
     image:
       repository: ghcr.io/disafronov/dummy-frontend
