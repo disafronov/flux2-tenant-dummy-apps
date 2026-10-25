@@ -9,7 +9,7 @@ spec:
       version: 10.5.1
   values:
     image:
-      tag: 0.1.7-rc.1 # {"$imagepolicy": "dummy-apps:dummy-backend:tag"}
+      tag: 0.1.8-rc.1 # {"$imagepolicy": "dummy-apps:dummy-backend:tag"}
     ingress:
       enabled: true
       annotations:
